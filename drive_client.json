@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "assetbalancer",
+  "private_key_id": "96a6423ca60c51d9cf772a9012e87e23739a0d15",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5+1wWn17nr+rk\nHj5gIZmav75gk0XTDdXjnYbn+oCtMHdTU60vqCfMcQBBFUchYyECj7qedYixvJr+\nI0xVSyCdEJ/7AqZKQwCEYB2BtrXDpj3zuoVq7NPvgFjLwiotlPFZY9rUiSYRj1hr\nK9j4OOo8YJrvtP78cqllLEd91/i/pcY6VSW8GS4tyvYkd0twvZMJF7PFm8dXVl7S\n8N7tU/+i8jCvqagfLaligHY8ggGH8c6ojYqvbsZdp7tgQsvRFSnvvjmXWKO9hRzj\nc+rnlRONYGygDpQHxOCwgs8nYMz5cJRq4C3NnbughUNOF6crxnoAWkmfgA5lsn/r\nWRmL4We1AgMBAAECggEAAg8VQrpiHvCfCiRpN+WUgWW3MyBi9wg98ZaNcn2mZlN+\nrb6JZzswv/SoTOL5pvfpYncrOsljfiJZN0TrH0y5vIcqeJZyVU58HPsNTUdg5Hcg\nchk/G+5l2ccnvAfa1vnfftcjkd8DSuCXftGmghYnr89tvkO6V96H6rp24Y/FszS5\nI0t7EwW26gGUnLtEu6A+gPJ69lRB0kg1kA0M7hZxkxRQPK/t+KqfQj3Ws3T8BAN9\nIohk2orZUbeCT8ngSq2nelbmkZtamTSqvtn0VRxr/LjDLPqjGXecGgWmkudOHvUk\npwdt3v0vzVVrSDjQGfv0Zy9wLnQVb9XN4k/LRexi6QKBgQD+lzQXATrb2QMtLiN1\nGiAL2DlJivJfqj993q6w4GSuzE1Hyxch+E0C4XTPUBv1RsY/a8ziWb186yQI6bb9\nWBHfgjX++mCgnI/4WzoWLpU0Rf6bTCUphEMPeI6Ux9OmRaXe9fX6Ove5br9yUctw\nGjcBSYYPMXXqTQ4VPfgQ5QrEfwKBgQC7Au0pqMgisRfO3wpNXh3AjeFk67Eyjxt/\n7vpPUIdTH7O4rWL4A7c0/4RIhrlW6cw3zpT0gnauKV6zVWU22A0dg9CNn2dbJIml\nTdJXO1PrKaUE5JpkdS88x5ZeSuFD4AMNe5xh4FuhvwUR3qqp5emJ9Ee6fSOgSPrm\nlsk1IIDpywKBgHFk21ibvaGKKPYIpNZViox8BBgTgRzG8XyYoGo7p9yLNqiRdn40\n3+g2jxZ/cdRvb4Fz/E+c9N8cxHIL1utEPMG2d2JYFo2y7hUKXPbgTKh5vItjAPJa\n7JuJcMgnsMdQIi8KkkKf3RKEl1TNxbTqmDFElCdUOlbfdzRS45hyy7b1AoGAGzbM\nznAqV6oPveIFPMcCa1/6OdZ2ndXneZGMSXh9iOInJCvPKCpaQdMhK/C3DefN+R0N\n3hsSLDwG9O/rX7THC9F/yuw0fTXu9ehCQMF4b9NKmVCvCwlmi2C8CBK7f0YdC5w+\nYJvmmb4Tfcs6aKj1eEbdHU1SnuOf52hv9VQ6jksCgYEAlzKi2jZ1Vp8C2lSpjqc7\nySGAZs0tL6CiOfVJ+D/+hB/sCxLCGLKPR49WytaL6ODc+OS8eglWhtl10o7pn+WW\nkZOV/QpsGtrV6i0nHE3tqS6OBaJpUjLYoIBitquMV11t5v+cnjiKwuUI+AP3YjdA\nfl4DtGj5vzP43Dc9wpGer+M=\n-----END PRIVATE KEY-----\n",
+  "client_email": "assetbalancer@assetbalancer.iam.gserviceaccount.com",
+  "client_id": "102330925113166078734",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/assetbalancer%40assetbalancer.iam.gserviceaccount.com"
+}

@@ -43,7 +43,6 @@ pp = pprint.PrettyPrinter()
 gsScriptName = os.path.basename(__file__)
 
 
-
 class Turret:
     def __init__(self, copyable, turret_name, burst, fire_rate, hull_dmg, shield_dmg, sound_name, random, man_accuracy, life_time, laser_thickness, speed, burst_time_in_between, price, color):
         self.copyable = copyable
@@ -61,6 +60,17 @@ class Turret:
         self.burst_time_in_between = burst_time_in_between
         self.price = price
         self.color = color
+
+class TurretProcessDirector:
+    def __init__(self):
+        self.allClasses = []
+
+    def construct(self, builderName):
+        targetClass = getattr(Turret, builderName)
+        instance = targetClass()
+        self.allClasses.append(instance)
+
+director = TurretProcessDirector()
 
 class Test:
     pass
@@ -115,7 +125,8 @@ def clean_turret_sheet_data(currentTurrets):
         b += 2
         color= selected_item_list[b][1]
         b += 1
-        globals()[turretList[i]] = Turret(copyable, turret_name, burst, fire_rate, hull_dmg, shield_dmg, sound_name, random, man_accuracy, life_time, laser_thickness, speed, burst_time_in_between, price, color)
+        for id in turretList[1]:
+            director.construct(copyable, turret_name, burst, fire_rate, hull_dmg, shield_dmg, sound_name, random, man_accuracy, life_time, laser_thickness, speed, burst_time_in_between, price, color)
         print(turretList[i].turret_name, "logged!")
         i += 1
 
@@ -136,7 +147,7 @@ def build_turret_list(raw_turret_sheet_data):
     return list_of_turrets
 
 def initialize_turret_list():
-
+    pass
 
 ### PROGRAM STARTS HERE
 # Print the date/time when this script started

@@ -25,6 +25,8 @@ import time
 import sys
 import pprint
 import gspread
+from collections import namedtuple
+import re
 #import pickle
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -40,41 +42,7 @@ TURRET_ATTRIBUTE_LIST = ['turret_name', 'burst', 'fire_rate', 'hull_dmg', 'shiel
 pp = pprint.PrettyPrinter()
 
 # Identify the name of the script
-gsScriptName = os.path.basename(__file__)
-
-
-class Turret:
-    def __init__(self, copyable, turret_name, burst, fire_rate, hull_dmg, shield_dmg, sound_name, random, man_accuracy, life_time, laser_thickness, speed, burst_time_in_between, price, color):
-        self.copyable = copyable
-        self.turret_name = turret_name
-        self.burst = burst
-        self.fire_rate = fire_rate
-        self.hull_damage = hull_dmg
-        self.shield_damage = shield_dmg
-        self.sound_name = sound_name
-        self.random = random
-        self.man_accuracy = man_accuracy
-        self.life_time = life_time
-        self.laser_thickness = laser_thickness
-        self.speed = speed
-        self.burst_time_in_between = burst_time_in_between
-        self.price = price
-        self.color = color
-
-class TurretProcessDirector:
-    def __init__(self):
-        self.allClasses = []
-
-    def construct(self, builderName):
-        targetClass = getattr(Turret, builderName)
-        instance = targetClass()
-        self.allClasses.append(instance)
-
-director = TurretProcessDirector()
-
-class Test:
-    pass
-
+gsScriptName = os.path.basename(__file__
 
 # Provide credidentials to google API, collect and display information from selected sheet
 def get_turret_sheet_data():
@@ -125,8 +93,7 @@ def clean_turret_sheet_data(currentTurrets):
         b += 2
         color= selected_item_list[b][1]
         b += 1
-        for id in turretList[1]:
-            director.construct(copyable, turret_name, burst, fire_rate, hull_dmg, shield_dmg, sound_name, random, man_accuracy, life_time, laser_thickness, speed, burst_time_in_between, price, color)
+        turretList[i] = Turret(copyable, turret_name, burst, fire_rate, hull_dmg, shield_dmg, sound_name, random, man_accuracy, life_time, laser_thickness, speed, burst_time_in_between, price, color)
         print(turretList[i].turret_name, "logged!")
         i += 1
 
@@ -146,8 +113,33 @@ def build_turret_list(raw_turret_sheet_data):
             b += 1
     return list_of_turrets
 
+
+def clean_turret_sheet_data(currentTurrets):
+    _Turret = namedtuple('Turret',
+                         [to_underscore(k) for k in currentTurrets[0].keys()])
+
+    class Turret(_Turret):
+        __slots__ = ()
+
+        def is_fast(self):
+            return self.speed > 500
+
+    instances = [
+        Turret(**dict((to_underscore(k), v) for k, v in t.items()))
+        for t in currentTurrets]
+
+    return dict((t.turret_name, t) for t in instances)
+
 def initialize_turret_list():
     pass
+
+
+def to_underscore(word):
+    return '_'.join(x.lower() for x in re.findall(r'[A-Z]+[a-z]*', word))
+
+def clean_turret_sheet_data(currentTurrets):
+    return [Turret(**t) for t in currentTurrets]
+    # or [Turret(*t.values()) for t in currentTurrets] if attribute names are changed from the initial data.
 
 ### PROGRAM STARTS HERE
 # Print the date/time when this script started
@@ -156,14 +148,13 @@ print("%s has started as of %s." % (gsScriptName, time.strftime("%c")))
 # Pull turret sheet data from google drive and assign it to "rawTurretSheetContents"
 rawTurretSheetContents = get_turret_sheet_data()
 
-turretList = build_turret_list(rawTurretSheetContents)
-print(turretList)
-print(SmallSuppressor.burst)
+turret_by_name = clean_turret_sheet_data(rawTurretSheetContents)
 
-turretList[1] = Test()
+print(turret_by_name.keys())
+print(turret_by_name['SmallSuppressor'].burst)
+print('SmallSuppressor is fast:', turret_by_name['SmallSuppressor'].is_fast())
 
 
-print(turretList)
 # Convert raw turret sheet data into identified class objects under the "Turret" class
 clean_turret_sheet_data(rawTurretSheetContents)
 #print(SmallSuppressor.burst)
